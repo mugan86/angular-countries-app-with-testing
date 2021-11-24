@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/@services/shared.service';
+
+@Component({
+  selector: 'app-city',
+  templateUrl: './city.component.html',
+  styleUrls: ['./city.component.css']
+})
+export class CityComponent implements OnInit {
+
+  constructor(private sharedService: SharedService) { }
+
+  ngOnInit(): void {
+  }
+  getCity() {
+    return this.sharedService.getCity();
+  }
+
+}
