@@ -32,7 +32,7 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('countries-app');
   });
 
-  it('should render title', () => {
+  it('should render title ', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;

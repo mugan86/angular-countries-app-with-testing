@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 https://github.com/malaga-front-end/nrwl-angular-jest-cypress-quickstart/tree/master/tutorial/chapter-5-e2e-testing-with-cypress
 
+## Cypress CD / CI
+
+https://offering.solutions/blog/articles/2018/06/01/running-cypress-tests-in-an-angular-project-with-travis-ci/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

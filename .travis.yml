@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "14"
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+dist: xenial
+sudo: required
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g @angular/cli
+install:
+  - npm install
+script:
+  - npm run build:prod
+  - npm run test
+  - npm run cypress:ci
+
+deploy:
+  provider: pages
+  skip_cleanup: true # To avoid cleanup of the artifact generated during script
+  token: $GITHUB_TOKEN # Token proporcionado en las variables de entorno
+  local_dir: dist/countries-app # Referencia de donde está compilado el proyecto
+  on:
+    branch: master

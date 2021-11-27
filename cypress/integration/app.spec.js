@@ -5,7 +5,7 @@ describe("Página - Countries / Cities - Testeando funcionamiento y estilos", ()
     // https://docs.cypress.io/api/commands/intercept#With-a-StaticResponse-object
     const staticResponse = [{ name: "Spain", capital: "Madrid" }];
     cy.intercept("/countries", staticResponse);
-    cy.visit("/");
+    cy.visit("http://localhost:4200");
   });
 
   it("Check Country element take correct base styles", () => {
