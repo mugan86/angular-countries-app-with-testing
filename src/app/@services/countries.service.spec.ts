@@ -1,4 +1,4 @@
-import { async, inject, TestBed } from '@angular/core/testing';
+import { async, inject, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CountriesService } from './countries.service';
@@ -23,7 +23,7 @@ describe('CountriesService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  it(`should fetch posts as an Observable`, async(inject([HttpTestingController, CountriesService],
+  it(`should fetch posts as an Observable`, waitForAsync(inject([HttpTestingController, CountriesService],
     (httpClient: HttpTestingController, countriesService: CountriesService) => {
       const countries = [
         {

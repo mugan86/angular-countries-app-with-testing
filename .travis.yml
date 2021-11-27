@@ -18,13 +18,14 @@ install:
   - cypress install
 script:
   - npm run build:prod
+  - json-server ./dist/countries-app/assets/db/countries.json --port 3000
   - ng test --watch false --browsers ChromeHeadless
   - npm run cypress:ci
 
-deploy:
-  provider: pages
-  skip_cleanup: true # To avoid cleanup of the artifact generated during script
-  token: $TOKEN # Token proporcionado en las variables de entorno
-  local_dir: dist/countries-app # Referencia de donde está compilado el proyecto
-  on:
-    branch: master
+# deploy:
+  # provider: pages
+  # skip_cleanup: true # To avoid cleanup of the artifact generated during script
+  # token: $TOKEN # Token proporcionado en las variables de entorno
+  # local_dir: dist/countries-app # Referencia de donde está compilado el proyecto
+  # on:
+    # branch: master
