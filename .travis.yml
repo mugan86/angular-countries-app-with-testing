@@ -18,7 +18,6 @@ install:
   - cypress install
 script:
   - npm run build:prod
-  - json-server ./dist/countries-app/assets/db/countries.json --port 3000
   - ng test --watch false --browsers ChromeHeadless
   - npm run cypress:ci
 
