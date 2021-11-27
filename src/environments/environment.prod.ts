@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://raw.githubusercontent.com/mugan86/angular-countries-app-with-testing/master/src/assets/db/countries.json'
+  apiUrl: 'https://mocki.io/v1/a5b76425-1eec-46ed-9677-175badaad896'
 };

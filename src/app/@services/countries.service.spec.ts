@@ -1,5 +1,9 @@
+import { environment } from './../../environments/environment';
 import { async, inject, TestBed, waitForAsync } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 
 import { CountriesService } from './countries.service';
 
@@ -9,12 +13,8 @@ describe('CountriesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-      ],
-      providers: [
-        CountriesService
-      ],
+      imports: [HttpClientTestingModule],
+      providers: [CountriesService],
     });
     service = TestBed.inject(CountriesService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -23,37 +23,43 @@ describe('CountriesService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  it(`should fetch posts as an Observable`, waitForAsync(inject([HttpTestingController, CountriesService],
-    (httpClient: HttpTestingController, countriesService: CountriesService) => {
-      const countries = [
-        {
-          "name": "Afghanistan",
-          "capital": "Kabul"
-        },
-        {
-          "name": "Albania",
-          "capital": "Tirana"
-        },
-        {
-          "name": "Algeria",
-          "capital": "Alger"
-        },
-        {
-          "name": "American Samoa",
-          "capital": "Fagatogo"
-        },
-      ];
-      countriesService.getCountries()
-        .subscribe((posts: any) => {
-          expect(posts.length).toBe(4);
-        });
+  it(
+    `should fetch posts as an Observable`,
+    waitForAsync(
+      inject(
+        [HttpTestingController, CountriesService],
+        (
+          httpClient: HttpTestingController,
+          countriesService: CountriesService
+        ) => {
+          const countries = [
+            {
+              name: 'Afghanistan',
+              capital: 'Kabul',
+            },
+            {
+              name: 'Albania',
+              capital: 'Tirana',
+            },
+            {
+              name: 'Algeria',
+              capital: 'Alger',
+            },
+            {
+              name: 'American Samoa',
+              capital: 'Fagatogo',
+            },
+          ];
+          countriesService.getCountries().subscribe((posts: any) => {
+            expect(posts.length).toBe(4);
+          });
+          let req = httpMock.expectOne(environment.apiUrl);
+          expect(req.request.method).toBe('GET');
 
-      let req = httpMock.expectOne('http://localhost:3000/countries');
-      expect(req.request.method).toBe("GET");
-
-      req.flush(countries);
-      httpMock.verify();
-  })));
-      
-  
+          req.flush(countries);
+          httpMock.verify();
+        }
+      )
+    )
+  );
 });
