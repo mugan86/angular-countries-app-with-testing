@@ -1,6 +1,8 @@
-# CountriesApp
+# Countries App - Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+
+Practice with CI / CD using Unit Testing and E2E with Cypress.
 
 https://github.com/malaga-front-end/nrwl-angular-jest-cypress-quickstart/tree/master/tutorial/chapter-5-e2e-testing-with-cypress
 
