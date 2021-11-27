@@ -16,7 +16,7 @@ install:
   - npm install
 script:
   - npm run build:prod
-  - npm run test
+  - npm run test --watch false --browsers ChromeHeadless
   - npm run cypress:ci
 
 deploy:
