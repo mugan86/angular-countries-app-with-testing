@@ -24,7 +24,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true # To avoid cleanup of the artifact generated during script
-  token: $GITHUB_TOKEN # Token proporcionado en las variables de entorno
+  token: $TOKEN # Token proporcionado en las variables de entorno
   local_dir: dist/countries-app # Referencia de donde está compilado el proyecto
   on:
     branch: master
