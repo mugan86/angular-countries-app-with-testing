@@ -5,6 +5,7 @@ cache:
   directories:
     - ~/.npm
     - node_modules
+    - /home/travis/.cache/Cypress
 dist: xenial
 sudo: required
 branches:
@@ -14,6 +15,7 @@ before_script:
   - npm install -g @angular/cli
 install:
   - npm install
+  - cypress install
 script:
   - npm run build:prod
   - ng test --watch false --browsers ChromeHeadless
